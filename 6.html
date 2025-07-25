@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Number</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      padding-top: 50px;
+    }
+    h1 { color: #333; }
+    label { font-size: 18px; }
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+      margin: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #result {
+      font-size: 32px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Prime Number</h1>
+  <label>Enter Number:</label><br>
+  <input type="number" id="num"><br>
+  <button onclick="checkPrime()">Your Prime Number</button>
+  <div id="result"></div>
+
+  <script>
+    // Event trigger function
+    function checkPrime() {
+      const number = parseInt(document.getElementById("num").value);
+
+      if (isNaN(number)) {
+        document.getElementById("result").textContent = "Please enter a valid number.";
+        return;
+      }
+
+      if (isPrime(number)) {
+        document.getElementById("result").textContent = number + " is a Prime Number.";
+      } else {
+        document.getElementById("result").textContent = number + " is NOT a Prime Number.";
+      }
+    }
+
+    // Logic for checking prime
+    function isPrime(number) {
+      if (number <= 1) return false;
+      if (number === 2) return true;
+      if (number % 2 === 0) return false;
+
+      for (let i = 3; i <= Math.sqrt(number); i += 2) {
+        if (number % i === 0) return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>

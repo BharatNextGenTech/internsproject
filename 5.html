@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maximum Of Three</title>
+  <title>Factorial</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -45,36 +45,32 @@
   </style>
 </head>
 <body>
-  <h1>Maximum Of Three Numbers</h1>
-  <label>Enter First Number:</label><br>
-  <input type="number" id="num1"><br>
-  <label>Enter Second Number:</label><br>
-  <input type="number" id="num2"><br>
-  <label>Enter Third Number:</label><br>
-  <input type="number" id="num3"><br>
-  <button onclick="showMaximum()">Get Maximum</button> 
-
+  <h1>Factorial of a Number</h1>
+  <label>Enter Number:</label><br>
+  <input type="number" id="num"><br>
+  <button onclick="calculateFactorial()">Your Output</button>
   <div id="result"></div>
 
   <script>
-    function maximumOfThree(a, b, c) { //function creating 
-      if (a >= b && a >= c) {
-        return a;
-      } else if (b >= a && b >= c) {
-        return b;
-      } else {
-        return c;
+    function calculateFactorial() {
+      const num = parseInt(document.getElementById("num").value);
+
+      if (isNaN(num)) {
+        document.getElementById("result").textContent = "Please enter a valid number.";
+        return;
       }
-    }
 
-    function showMaximum() {
-      const a = parseFloat(document.getElementById("num1").value);
-      const b = parseFloat(document.getElementById("num2").value);
-      const c = parseFloat(document.getElementById("num3").value);
+      if (num < 0) {
+        document.getElementById("result").textContent = "Factorial is not defined for negative numbers.";
+        return;
+      }
 
-      const max = maximumOfThree(a, b, c);
+      let fact = 1;//1 thi fact consider karshe 
+      for (let i = 2; i <= num; i++) {//loop ma num jetala hashe tya sudhi chalshe 
+        fact *= i;
+      }
 
-      document.getElementById("result").textContent = "Your Maximum Number is: " + max;
+      document.getElementById("result").textContent = "Factorial is: " + fact;
     }
   </script>
 </body>
