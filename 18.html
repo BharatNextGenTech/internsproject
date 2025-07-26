@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sum of Digits</title>
+  <title>Minutes to Hours Converter</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,8 +11,9 @@
       text-align: center;
       padding-top: 50px;
     }
-    h1 { color: #333; }
-    label { font-size: 18px; }
+    h1 {
+      color: #333;
+    }
     input[type="number"] {
       padding: 10px;
       font-size: 16px;
@@ -33,7 +34,7 @@
       background-color: #45a049;
     }
     #result {
-      font-size: 32px;
+      font-size: 24px;
       font-weight: bold;
       margin-top: 20px;
       color: #333;
@@ -41,28 +42,29 @@
   </style>
 </head>
 <body>
-  <h1>Sum of Digits</h1>
-  <label>Enter Number:</label><br>
-  <input type="number" id="num"><br>
-  <button onclick="sumDigits()">Get Sum</button>
+
+  <h1>Convert Minutes to Hours & Minutes</h1>
+  <label>Enter Minutes:</label><br>
+  <input type="number" id="minutesInput"><br>
+  <button onclick="convertToHours()">Convert</button>
   <div id="result"></div>
 
   <script>
-    function sumDigits() {
-      const number = document.getElementById("num").value;
-      let sum = 0;
+    function convertToHours() {
+      const minutes = parseInt(document.getElementById("minutesInput").value);
+      const resultDiv = document.getElementById("result");
 
-      for (let i = 0; i < number.length; i++) {
-        const digit = parseInt(number[i]);
-        if (!isNaN(digit)) {
-          sum += digit;
-        }
+      if (isNaN(minutes) || minutes < 0) {
+        resultDiv.textContent = "Please enter a valid positive number of minutes.";
+        return;
       }
 
-      document.getElementById("result").textContent = "Sum of digits: " + sum;
+      const hours = Math.floor(minutes / 60);  // hours = 60 min per hour
+      const remainingMinutes = minutes % 60;   // remaining minutes
+
+      resultDiv.textContent = `${minutes} minutes = ${hours} hour and ${remainingMinutes} minute`;
     }
-   
   </script>
+
 </body>
 </html>
- 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sum of Digits</title>
+  <title>Fibonacci Series</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -33,7 +33,7 @@
       background-color: #45a049;
     }
     #result {
-      font-size: 32px;
+      font-size: 20px;
       font-weight: bold;
       margin-top: 20px;
       color: #333;
@@ -41,28 +41,32 @@
   </style>
 </head>
 <body>
-  <h1>Sum of Digits</h1>
-  <label>Enter Number:</label><br>
+  <h1>Fibonacci Series Generator</h1>
+  <label>Enter number of terms:</label><br>
   <input type="number" id="num"><br>
-  <button onclick="sumDigits()">Get Sum</button>
+  <button onclick="generateFibonacci()">Generate</button>
   <div id="result"></div>
 
   <script>
-    function sumDigits() {
-      const number = document.getElementById("num").value;
-      let sum = 0;
+    function generateFibonacci() {
+      const n = parseInt(document.getElementById("num").value);
+      const resultDiv = document.getElementById("result");
 
-      for (let i = 0; i < number.length; i++) {
-        const digit = parseInt(number[i]);
-        if (!isNaN(digit)) {
-          sum += digit;
-        }
+      if (isNaN(n) || n <= 0) {
+        resultDiv.textContent = "Please enter a valid positive number.";
+        return;
       }
 
-      document.getElementById("result").textContent = "Sum of digits: " + sum;
+      let series = [0];
+      if (n > 1) series.push(1);
+
+      for (let i = 2; i < n; i++) {
+        const next = series[i - 1] + series[i - 2];
+        series.push(next);
+      }
+
+      resultDiv.textContent = "Fibonacci Series: " + series.join(", ");
     }
-   
   </script>
 </body>
 </html>
- 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sum of Digits</title>
+  <title>Celsius to Fahrenheit</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -23,17 +23,17 @@
       padding: 10px 20px;
       font-size: 16px;
       margin-top: 20px;
-      background-color: #4CAF50;
+      background-color: #2196F3;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #1976D2;
     }
     #result {
-      font-size: 32px;
+      font-size: 20px;
       font-weight: bold;
       margin-top: 20px;
       color: #333;
@@ -41,28 +41,25 @@
   </style>
 </head>
 <body>
-  <h1>Sum of Digits</h1>
-  <label>Enter Number:</label><br>
-  <input type="number" id="num"><br>
-  <button onclick="sumDigits()">Get Sum</button>
+  <h1>Celsius to Fahrenheit Converter</h1>
+  <label>Enter Celsius Temperature:</label><br>
+  <input type="number" id="celsius"><br>
+  <button onclick="convertToFahrenheit()">Convert</button>
   <div id="result"></div>
 
   <script>
-    function sumDigits() {
-      const number = document.getElementById("num").value;
-      let sum = 0;
+    function convertToFahrenheit() {
+      const celsius = parseFloat(document.getElementById("celsius").value);
+      const resultDiv = document.getElementById("result");
 
-      for (let i = 0; i < number.length; i++) {
-        const digit = parseInt(number[i]);
-        if (!isNaN(digit)) {
-          sum += digit;
-        }
+      if (isNaN(celsius)) {
+        resultDiv.textContent = "Please enter a valid number.";
+        return;
       }
 
-      document.getElementById("result").textContent = "Sum of digits: " + sum;
+      const fahrenheit = (celsius * 9 / 5) + 32;
+      resultDiv.textContent = `${celsius}°C = ${fahrenheit.toFixed(2)}°F`;
     }
-   
   </script>
 </body>
 </html>
- 

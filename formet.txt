@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sum of Digits</title>
+  <title></title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -41,26 +41,14 @@
   </style>
 </head>
 <body>
-  <h1>Sum of Digits</h1>
+  <h1></h1>
   <label>Enter Number:</label><br>
   <input type="number" id="num"><br>
-  <button onclick="sumDigits()">Get Sum</button>
+  <button onclick="()">Get Sum</button>
   <div id="result"></div>
 
   <script>
-    function sumDigits() {
-      const number = document.getElementById("num").value;
-      let sum = 0;
-
-      for (let i = 0; i < number.length; i++) {
-        const digit = parseInt(number[i]);
-        if (!isNaN(digit)) {
-          sum += digit;
-        }
-      }
-
-      document.getElementById("result").textContent = "Sum of digits: " + sum;
-    }
+   
    
   </script>
 </body>

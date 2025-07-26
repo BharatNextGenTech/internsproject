@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sum of Digits</title>
+  <title>Vowel Counter</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,10 +13,10 @@
     }
     h1 { color: #333; }
     label { font-size: 18px; }
-    input[type="number"] {
+    input[type="text"] {
       padding: 10px;
       font-size: 16px;
-      width: 200px;
+      width: 300px;
       margin: 5px;
     }
     button {
@@ -33,7 +33,7 @@
       background-color: #45a049;
     }
     #result {
-      font-size: 32px;
+      font-size: 24px;
       font-weight: bold;
       margin-top: 20px;
       color: #333;
@@ -41,28 +41,29 @@
   </style>
 </head>
 <body>
-  <h1>Sum of Digits</h1>
-  <label>Enter Number:</label><br>
-  <input type="number" id="num"><br>
-  <button onclick="sumDigits()">Get Sum</button>
+  <h1>Vowel Counter</h1>
+  <label>Enter a String:</label><br>
+  <input type="text" id="num"><br>
+  <button onclick="countVowels()">Count Vowels</button>
   <div id="result"></div>
 
   <script>
-    function sumDigits() {
-      const number = document.getElementById("num").value;
-      let sum = 0;
+    function countVowels() {
+      const str = document.getElementById("num").value.toLowerCase();
+      const vowels = ['a', 'e', 'i', 'o', 'u'];
+      let count = 0;
+      let foundVowels = [];//user na vowels  a find thai chhe 
 
-      for (let i = 0; i < number.length; i++) {
-        const digit = parseInt(number[i]);
-        if (!isNaN(digit)) {
-          sum += digit;
+      for (let char of str) {
+        if (vowels.includes(char)) {
+          count++;
+          foundVowels.push(char);
         }
       }
 
-      document.getElementById("result").textContent = "Sum of digits: " + sum;
+      const resultText = `Number of vowels: ${count}<br>Vowels: ${foundVowels.join(", ")}`;
+      document.getElementById("result").innerHTML = resultText;
     }
-   
   </script>
 </body>
 </html>
- 
