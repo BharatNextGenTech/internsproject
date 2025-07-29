@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Left Rotate Array</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      padding-top: 50px;
+    }
+    h1 { color: #333; }
+    label { font-size: 18px; }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      margin: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rotate Array Left by 2 Positions</h1>
+  <label>Enter Numbers (comma separated):</label><br>
+  <input type="text" id="num"><br>
+  <button onclick="rotateArray()">Rotate</button>
+  <div id="result"></div>
+
+  <script>
+    function rotateArray() {
+      const input = document.getElementById("num").value;
+      
+      // Convert input string to array of numbers
+      let arr = input.split(',').map(Number);
+
+      if (arr.length < 2 || arr.some(isNaN)) {
+        document.getElementById("result").textContent = "Please enter at least 2 valid numbers.";
+        return;
+      }
+
+      // Rotate left by 2 positions
+      let first = arr.shift(); // remove first
+      let second = arr.shift(); // remove second
+      arr.push(first); // add first at end
+      arr.push(second); // add second at end
+
+      // Show result
+      document.getElementById("result").textContent = "Rotated Array: " + arr.join(', ');
+    }
+  </script>
+</body>
+</html>

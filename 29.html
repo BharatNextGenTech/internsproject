@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Merge Arrays with Enter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      padding-top: 50px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+    }
+    button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Numbers (Press Enter to Add)</h2>
+  <input type="number" id="input1" placeholder="Array 1 Number">
+  <button onclick="addToArray1()">Add</button>
+  <div>Array 1: <span id="array1Display"></span></div>
+
+  <br><br>
+
+  <input type="number" id="input2" placeholder="Array 2 Number">
+  <button onclick="addToArray2()">Add</button>
+  <div>Array 2: <span id="array2Display"></span></div>
+
+  <br><br>
+
+  <button onclick="mergeArrays()">Merge Arrays</button>
+
+  <div id="result"></div>
+
+  <script>
+    let array1 = [];
+    let array2 = [];
+
+    function addToArray1() {
+      const num = parseInt(document.getElementById("input1").value);
+      if (!isNaN(num)) {
+        array1.push(num);
+        document.getElementById("array1Display").textContent = array1.join(", ");
+        document.getElementById("input1").value = "";
+      }
+    }
+
+    function addToArray2() {
+      const num = parseInt(document.getElementById("input2").value);
+      if (!isNaN(num)) {
+        array2.push(num);
+        document.getElementById("array2Display").textContent = array2.join(", ");
+        document.getElementById("input2").value = "";
+      }
+    }
+
+    function mergeArrays() {
+      const merged = array1.concat(array2);
+      document.getElementById("result").textContent = "Merged Array: " + merged.join(", ");
+    }
+
+    // Allow Enter key to add number
+    document.getElementById("input1").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") addToArray1();
+    });
+    document.getElementById("input2").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") addToArray2();
+    });
+  </script>
+
+</body>
+</html>
