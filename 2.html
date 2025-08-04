@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Write a function to add two numbers</title>
+  <title>odd or even number</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -70,34 +70,20 @@
 </head>
 <body>
 
-  <h1>Add Two Numbers</h1>
+  <h1>Creat a function to check if a number is even or odd</h1>
 
   <div class="form-box">
-    <label for="num1">Enter First Number:</label>
+    <label for="num1">Enter Number:</label>
     <input type="number" id="num1">
 
-    <label for="num2">Enter Second Number:</label>
-    <input type="number" id="num2">
-
-    <button onclick="addNumbers()">Add</button>
+    <button onclick="checkEvenOdd()">Add</button>
 
     <div id="result"></div>
   </div>
-
-  <script>
-    function addNumbers() {//creat a function 
-      var n1 = parseFloat(document.getElementById("num1").value);//input leva mate 
-      var n2 = parseFloat(document.getElementById("num2").value);//input leva mate (parsefloat is a number ne float "2.5,10.25,44.13 etc.//")
-
-      if (isNaN(n1) || isNaN(n2)) {//if condition 
-        document.getElementById("result").textContent = "Please enter valid numbers.";//aa jayare user a input worng enter kare tyre run thashe 
-        return;
-      }
-
-      const sum = n1 + n2;//n1 and n2 ni value a su name na vairable ma store thashe 
-      document.getElementById("result").textContent = "Sum: " + sum;//ane chele output a show thashe 
-    }
-  </script>
-
+<script>
+  function checkEvenOdd(number) {
+  console.log(number + (number % 2 === 0 ? " is Even" : " is Odd"));
+}
+</script>
 </body>
 </html>

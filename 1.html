@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Return the square number</title>
+  <title>Write a function to add two numbers</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -70,28 +70,34 @@
 </head>
 <body>
 
-
-  <h1> Creat a function to return the square of a number </h1>
+  <h1>Add Two Numbers</h1>
 
   <div class="form-box">
-    <label for="num1">Enter Number:</label>
+    <label for="num1">Enter First Number:</label>
     <input type="number" id="num1">
-    <button onclick="squareNumber()">Check</button>
+
+    <label for="num2">Enter Second Number:</label>
+    <input type="number" id="num2">
+
+    <button onclick="addNumbers()">Add</button>
+
     <div id="result"></div>
   </div>
-<script>
 
+  <script>
+    function addNumbers() {//creat a function 
+      var n1 = parseFloat(document.getElementById("num1").value);//input leva mate 
+      var n2 = parseFloat(document.getElementById("num2").value);//input leva mate (parsefloat is a number ne float "2.5,10.25,44.13 etc.//")
 
-function squareNumber() {
-  let n = parseFloat(document.getElementById("num1").value);// ama do.........thi lai .........value a string input le chhe ane //parsefloat a aa input ne decimal ma convert kare chhe 
-  if (isNaN(n)) {// aa if condition add karvama ave chhe 
-    document.getElementById("result").textContent = "Please enter a valid number.";//jo nai to this print
-  } else {
-    document.getElementById("result").textContent = "Square of " + n + " " + "Number is " + (n * n);//ha to this print //n*n number ne number sahe multiplication karvano 
-  }
-}
+      if (isNaN(n1) || isNaN(n2)) {//if condition 
+        document.getElementById("result").textContent = "Please enter valid numbers.";//aa jayare user a input worng enter kare tyre run thashe 
+        return;
+      }
 
-  
-</script>
+      const sum = n1 + n2;//n1 and n2 ni value a su name na vairable ma store thashe 
+      document.getElementById("result").textContent = "Sum: " + sum;//ane chele output a show thashe 
+    }
+  </script>
+
 </body>
 </html>
