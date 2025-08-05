@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Maximum of Three Numbers</title>
+ <style>
+   body {
+     font-family: Arial, sans-serif;
+     background-color: #f0f8ff;
+   text-align: center;
+     padding-top: 80px;
+   }
+
+   h1 {
+     color: #333;
+     margin-bottom: 30px;
+   }
+
+   .form-box {
+     display: inline-block;
+     background-color: #e6f2ff;
+     border: 2px solid #b3d1ff;
+     border-radius: 12px;
+    padding: 40px 30px;
+     box-shadow: 0 6px 15px rgba(159, 14, 14, 0.1);
+     text-align: left;
+   }
+
+   label {
+     font-size: 18px;
+     display: block;
+     margin-bottom: 8px;
+     color: #333;
+   }
+
+   input[type="number"] {
+     padding: 10px;
+     font-size: 16px;
+     width: 100%;
+     margin-bottom: 20px;
+     border: 1px solid #999;
+     border-radius: 5px;
+     box-sizing: border-box;
+   }
+
+   button {
+     padding: 10px 20px;
+     font-size: 16px;
+     background-color: #000000;
+     color: white;
+    border: none;
+    border-radius: 5px;
+     cursor: pointer;
+     width: 100%;
+   }
+
+   button:hover {
+     background-color: #6653c7;
+   }
+
+   #result {
+     font-size: 24px;
+     font-weight: bold;
+     margin-top: 20px;
+     color: #333;
+    text-align: center;
+  }
+ </style>
+</head>
+<body>
+
+ <h1>Find Maximum of Three Numbers</h1>
+
+ <div class="form-box">
+   <label for="num1">Enter First Number:</label>
+  <input type="number" id="num1">
+
+   <label for="num2">Enter Second Number:</label>
+   <input type="number" id="num2">
+
+   <label for="num3">Enter Third Number:</label>
+   <input type="number" id="num3">
+
+   <button onclick="findMax()">Check</button>
+   <div id="result"></div>
+ </div>
+
+ <script>
+   function findMax() {
+     var n1 = parseFloat(document.getElementById("num1").value);//html mathi input leva mate 
+     var n2 = parseFloat(document.getElementById("num2").value);
+    var n3 = parseFloat(document.getElementById("num3").value);
+
+    if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {//jo ama koy ncheck darmiyan not a number avi jay to te tru thai chhe ane condition pramane 
+       document.getElementById("result").textContent = "Please enter all three valid numbers.";//aa line print thai chhe 
+      return;// aa number no hoy to code ne stope karide chhe agal vadhatu nathi 
+    }
+
+     var max = Math.max(n1, n2, n3);//3 input number mathi max number find kare chhe 
+    document.getElementById("result").textContent = "The maximum number is: " + max;
+  }
+ </script>
+
+</body>
+</html>
