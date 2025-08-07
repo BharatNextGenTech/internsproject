@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reverse Number</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .form-box {
+      display: inline-block;
+      background-color: #e6f2ff;
+      border: 2px solid #b3d1ff;
+      border-radius: 12px;
+      padding: 40px 30px;
+      box-shadow: 0 6px 15px rgba(159, 14, 14, 0.1);
+      text-align: left;
+    }
+
+    label {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #000000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #6653c7;
+    }
+
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #333;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Write a function to reverse a number </h1>
+
+  <div class="form-box">
+    <label for="num1">Enter Number:</label>
+    <input type="number" id="num1" />
+
+    <button onclick="reverseNumber()">Check</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function reverseNumber() {//creat a function 
+      let n = document.getElementById("num1").value;//num ne variable ma store karechhe 
+      let reversed = n.toString().split('').reverse().join('');// (string):-je input apel chhe te string ma no hoy to tema  convert kare chhe || (split):-apel string no character array creat kare chhe ("1","2",etc.........)
+      //(reverse):- a array ne reverse kare chhe //(join):-farivar jyare split tahyel ne string ma convert kare chhe 
+      //aa badhi value a variable reverse ma stor thai chhe 
+      document.getElementById("result").innerText = "Reversed Number: " + reversed;//output show kare chhe 
+    }
+  </script>
+
+</body>
+</html>
