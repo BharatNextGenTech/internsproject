@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reverse Number</title>
+  <title></title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -76,18 +76,15 @@
     <label for="num1">Enter  Number:</label>
     <input type="number" id="num1" />
 
-    <button onclick="reverseNumber()">Check</button>
+    <button onclick="()">Check</button>
 
     <div id="result"></div>
   </div>
 
   <script>
-    function reverseNumber() {//creat a function 
-      let n = document.getElementById("num1").value;//num ne variable ma store karechhe 
-      let reversed = n.toString().split('').reverse().join('');// (string):-je input apel chhe te string ma no hoy to tema  convert kare chhe || (split):-apel string no character array creat kare chhe ("1","2",etc.........)
-      //(reverse):- a array ne reverse kare chhe //(join):-farivar jyare split tahyel ne string ma convert kare chhe 
-      //aa badhi value a variable reverse ma stor thai chhe 
-      document.getElementById("result").innerText = "Reversed Number: " + reversed;//output show kare chhe 
+    function () {//creat a function 
+        
+        
     }
   </script>
 

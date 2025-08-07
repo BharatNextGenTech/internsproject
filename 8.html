@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reverse Number</title>
+  <title>Sum of Digits</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,12 +11,10 @@
       text-align: center;
       padding-top: 80px;
     }
-
     h1 {
       color: #333;
       margin-bottom: 30px;
     }
-
     .form-box {
       display: inline-block;
       background-color: #e6f2ff;
@@ -26,42 +24,32 @@
       box-shadow: 0 6px 15px rgba(159, 14, 14, 0.1);
       text-align: left;
     }
-
     label {
       font-size: 18px;
-      display: block;
       margin-bottom: 8px;
-      color: #333;
+      display: block;
     }
-
     input[type="number"] {
       padding: 10px;
       font-size: 16px;
       width: 100%;
       margin-bottom: 20px;
-      border: 1px solid #999;
-      border-radius: 5px;
-      box-sizing: border-box;
     }
-
     button {
-      padding: 10px 20px;
+      padding: 10px;
       font-size: 16px;
-      background-color: #000000;
-      color: white;
+      background: #000;
+      color: #fff;
       border: none;
+      width: 100%;
       border-radius: 5px;
       cursor: pointer;
-      width: 100%;
     }
-
     button:hover {
       background-color: #6653c7;
     }
-
     #result {
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 22px;
       margin-top: 20px;
       color: #333;
       text-align: center;
@@ -70,24 +58,26 @@
 </head>
 <body>
 
-  <h1>Write a function to reverse a number </h1>
+  <h1>Creat a function of Sum of Digits</h1>
 
   <div class="form-box">
-    <label for="num1">Enter  Number:</label>
+    <label for="num1">Enter Number:</label>
     <input type="number" id="num1" />
-
-    <button onclick="reverseNumber()">Check</button>
-
+    <button onclick="sumDigits()">Check</button>
     <div id="result"></div>
   </div>
 
   <script>
-    function reverseNumber() {//creat a function 
-      let n = document.getElementById("num1").value;//num ne variable ma store karechhe 
-      let reversed = n.toString().split('').reverse().join('');// (string):-je input apel chhe te string ma no hoy to tema  convert kare chhe || (split):-apel string no character array creat kare chhe ("1","2",etc.........)
-      //(reverse):- a array ne reverse kare chhe //(join):-farivar jyare split tahyel ne string ma convert kare chhe 
-      //aa badhi value a variable reverse ma stor thai chhe 
-      document.getElementById("result").innerText = "Reversed Number: " + reversed;//output show kare chhe 
+    function sumDigits() {
+      let n = document.getElementById("num1").value;//aa input levamate 
+      let sum = 0;//aa sum variable sum name no banavo chhe ane ema darek digit nu addition karvama ave chhe 
+
+      n = Math.abs(n); // aa function a negativ number ni sig avgane chhe jethi sum ma vantho na ave  
+      for (let digit of n.toString()) {//number ne string ma convert kare chhe ane string par loop chalave chhe 
+        sum += Number(digit);//sting ne number ma convert kare ane sum ma store kare chhe 
+      }
+
+      document.getElementById("result").innerText = "Sum of digits: " + sum;//output batave chhhe
     }
   </script>
 
