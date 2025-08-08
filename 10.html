@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title></title>
+  <title>Celsius to Fahrenheit</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -70,19 +70,23 @@
 </head>
 <body>
 
-  <h1>Write a function to reverse a number </h1>
+  <h1> Creat a function of Convert Celsius to Fahrenheit</h1>
 
   <div class="form-box">
-    <label for="num1">Enter  Number:</label>
+    <label for="num1">Enter Celsius Temperature:</label>
     <input type="number" id="num1" />
 
-    <button onclick="()">Check</button>
+    <button onclick="convert()">Convert</button>
 
     <div id="result"></div>
   </div>
 
   <script>
-   
+    function convert() {//function chhe 
+      let c = document.getElementById("num1").value;//input get karave chhe 
+      let f = (c * 9/5) + 32;//fotmula chhe 
+      document.getElementById("result").innerText = c + "°C = " + f + "°F";//OUTput batave chhe 
+    }
   </script>
 
 </body>
