@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fibonacci Series</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .form-box {
+      display: inline-block;
+      background-color: #e6f2ff;
+      border: 2px solid #b3d1ff;
+      border-radius: 12px;
+      padding: 40px 30px;
+      box-shadow: 0 6px 15px rgba(159, 14, 14, 0.1);
+      text-align: left;
+    }
+
+    label {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #000000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #6653c7;
+    }
+
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #333;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fibonacci Series Generator</h1>
+
+  <div class="form-box">
+    <label for="num1">Enter Number of Terms:</label>
+    <input type="number" id="num1" />
+
+    <button onclick="generateFibonacci()">Check</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function generateFibonacci() {
+      let n = parseInt(document.getElementById("num1").value);
+      if (isNaN(n) || n <= 0) {
+        document.getElementById("result").innerText = "Please enter a valid positive number.";
+        return;
+      }
+
+      let fib = [];//febonacci series a array ma store kare chhe 
+      let a = 0, b = 1;
+
+      while (n-- > 0) {//loop chale n number ne one ochhho karine jya sudthi 0 no ave tya sudthi 
+        fib.push(a);//current number ne array ma mukavama ave chhe
+        let temp = a + b;//temp variable ma next number (a + b) store karo
+        a = b;// a ane b ne update kare chhe 
+        b = temp;
+      }
+
+      document.getElementById("result").innerText = "Fibonacci Series: " + fib.join(", ");//output print karave chhe - ane te output a 1,2,3,4,etc.. ma shoe thashe karan ke .join()no use karel chhe rtale
+    }
+  </script>
+
+</body>
+</html>
