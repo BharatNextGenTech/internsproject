@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> count of the vowels in string </title>
-
-
+  <title>Count Vowels in String</title>
 
   <style>
     body {
@@ -37,7 +35,7 @@
       color: #333;
     }
 
-    input[type="number"] {
+    input[type="text"] {
       padding: 10px;
       font-size: 16px;
       width: 100%;
@@ -73,11 +71,11 @@
 </head>
 <body>
 
-  <h1>Create a function to count the number of vowels in a string </h1>
+  <h1>Create a function to count the number of vowels in a string</h1>
 
   <div class="form-box">
-    <label for="num1">Enter  Number:</label>
-    <input type="number" id="num1" />
+    <label for="num1">Enter a String:</label>
+    <input type="text" id="num1" />
 
     <button onclick="vowels()">Check</button>
 
@@ -85,11 +83,23 @@
   </div>
 
   <script>
-function vowels(){
+    function vowels() {//creat a function this function name is vowels 
+      let str = document.getElementById("num1").value;// have aa function ma je input chhe te str ma variable ma store thai chhe 
 
-  
-}
+      let count = 0;// aa vowels counter chhe je 0 thi sharu thai chhe 
 
+      let vowelChars = "aeiouAEIOU";//aa vowels chhe je str ma thi gote chhe (a small and capital ma )
+
+      for (let i = 0; i < str.length; i++) {//aa for loop a string na first to last character sudhi chale chhe //str ma ketala character chhe(length) 
+        if (vowelChars.includes(str[i])) {//ama i ni andar jo character hashe to true thashe ane nai hoy to code skip thai jashe 
+          count++; // ama jetala vowels male teno count thashhe (count ni sharuat a 0 thi thashe ane pachi add thati jashe)
+        }
+      }
+
+      // Show result in display 
+      document.getElementById("result").innerText =
+        "Number of vowels:-" + count;
+    }
   </script>
 
 </body>
