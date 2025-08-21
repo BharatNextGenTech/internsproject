@@ -34,7 +34,8 @@
       color: #333;
     }
 
-    input[type="number"] {
+    /* ✅ FIX: number → text (so string + number both can be checked) */
+    input[type="text"] {    
       padding: 10px;
       font-size: 16px;
       width: 100%;
@@ -70,39 +71,40 @@
 </head>
 <body>
 
-  <h1> create function of palindrome</h1>
+  <h1>Create function of Palindrome</h1>
 
   <div class="form-box">
-    <label for="num1">Enter  Number:</label>
-    <input type="number" id="num1" />
+    <label for="num1">Enter String or Number:</label>
+    <!-- ✅ FIX: type changed to text -->
+    <input type="text" id="num1" />  
 
-    <button onclick="Palindrome()">Check</button>
+    <!-- ✅ FIX: onclick function name corrected -->
+    <button onclick="Palindrome2()">Check</button>  
 
     <div id="result"></div>
   </div>
 
  <script>
-  function Palindrome1(str) {
-    str = str.toLowerCase().replace(/[^a-z0-9]/g, "");
-    let reversed = str.split("").reverse().join(""); 
-    return str === reversed;
+  function Palindrome1(str) {//check function 
+    str = str.toLowerCase().replace(/[^a-z0-9]/g, "");//str am input ne lowercase ma ferve chhe //ane replace a Alphabet ane Number sivay badhu remove kari nakhe chhe
+    let reversed = str.split("").reverse().join(""); //split a str na cahrcter ne array ma ferve chhe //reverse a str ne reverse kare chhe //join a pachi array to string kare chhe 
+    return str === reversed;//jo str a reverse a tru hoy to palindrome baki false 
   }
 
   function Palindrome2() {
     let input = document.getElementById("num1").value;
-    if (input === "") {
+    if (input === "") {//user a value nakhi nathi to to niche apel condition print thashe 
       document.getElementById("result").innerText = "Please enter a string!";
       return;
     }
 
-    if (Palindrome(input)) {
+    if (Palindrome1(input)) {//aa function call thai jo palindron hoy to aa
       document.getElementById("result").innerText = `"${input}" is a Palindrome `;
-    } else {
+    } else {//jo palidron no hoy to aa
       document.getElementById("result").innerText = `"${input}" is NOT a Palindrome `;
     }
   }
 </script>
-
 
 </body>
 </html>
